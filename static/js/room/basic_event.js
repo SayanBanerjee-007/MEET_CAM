@@ -7,11 +7,6 @@ const copyUrlBtn = document.getElementById("copy-url-btn");
 const messageText = document.getElementById("message-text");
 
 // All Global Functions ---------------------------------------------------------------
-function beforeUnloadFunction(event) {
-  event.preventDefault();
-  event.returnValue = "";
-}
-
 // All Event Listeners ----------------------------------------------------------------
 participantNavBtn.addEventListener("click", () => {
   messageContent.classList.remove("visible");
@@ -29,7 +24,6 @@ copyUrlBtn.addEventListener("click", () => {
 messageText.addEventListener("keydown", (event) => {
   event.key === "Enter" ? sendMessageBtn.click() : false;
 });
-window.addEventListener("beforeunload", beforeUnloadFunction);
 
 // For Devices( max-width: 900px) ------------------------------------------------------
 const menuBtn = document.getElementById("menu-btn");

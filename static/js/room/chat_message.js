@@ -17,7 +17,6 @@ let permissionRequestersQueue = [];
 // All Global Functions ----------------------------------------------------------------
 setInterval(function urlCheck() {
   if (roomID === sessionStorage.getItem("roomID")) {
-    window.removeEventListener("beforeunload", beforeUnloadFunction);
     location.href = "/home";
   }
 }, 100);
@@ -97,7 +96,6 @@ hangUpBtn.addEventListener("click", () => {
   sessionStorage.setItem("roomID", roomID);
   const isSure = confirm("Are you sure you want to Hang up ?");
   if (isSure) {
-    window.removeEventListener("beforeunload", beforeUnloadFunction);
     location.href = "/home";
   }
 });
@@ -197,7 +195,6 @@ socket.once("permission-denied", () => {
   peer.destroy();
   const element = document.getElementById("decline-message");
   element.classList.add("host-message-visible");
-  window.removeEventListener("beforeunload", beforeUnloadFunction);
   declineBtn.addEventListener("click", () => {
     location.href = "/home";
   });
@@ -217,7 +214,6 @@ socket.on("participant-disconnected", (socketID) => {
 });
 socket.on("host-left", () => {
   peer.destroy();
-  window.removeEventListener("beforeunload", beforeUnloadFunction);
   document
     .querySelector(".host-leave-notification")
     .classList.add("host-leave-notification-visible");

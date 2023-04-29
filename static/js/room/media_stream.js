@@ -21,7 +21,7 @@ function getLocalMediaStream(video, audio) {
   if (!audio && !video) return null;
   return new Promise((resolve, reject) => {
     navigator.mediaDevices
-      .getUserMedia({ audio, video })
+      .getUserMedia({ audio, video: { facingMode: "user" } })
       .then((stream) => {
         if (video && audio) {
           resolve([stream.getVideoTracks()[0], stream.getAudioTracks()[0]]);
@@ -161,7 +161,7 @@ presentScreenBtn.addEventListener("click", async () => {
       presentScreenBtn.title = "Stop presenting screen";
       presentScreenBtn.classList.add("red");
     } catch (error) {
-      alert(error);
+      alert("Present screen does not supported by your browser.");
     }
   } else {
     myScreenStream.getVideoTracks()[0].stop();
