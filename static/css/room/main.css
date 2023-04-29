@@ -577,7 +577,7 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
 }
 .bottom .content .mic-off {
   background-color: #ef4040;
-  background-image: url("../../image/room/mic_of.png");
+  background-image: url("../../image/room/mic_off.png");
 }
 .bottom .content .content-children.number-3 {
   background-image: url("../../image/room/hangup.png");

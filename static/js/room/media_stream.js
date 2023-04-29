@@ -1,8 +1,10 @@
 // All Global Variables ----------------------------------------------------------------
+const host = location.hostname;
+const port = location.port;
 const peer = new Peer(undefined, {
-  host: location.hostname,
+  host,
   secure: true,
-  port: location.port,
+  port,
   path: "peerJS",
 });
 const myVideo = document.createElement("video");

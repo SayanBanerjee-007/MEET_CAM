@@ -108,7 +108,7 @@ submitButton.addEventListener("click", async (event) => {
     } else if (resJSON.status === 200) {
       popup("😊", "Login Successful", "Enjoy your metting with others.", false);
       setTimeout(() => {
-        location.href = `http://${host}:${port}/home`;
+        location.href = `https://${host}:${port}/home`;
       }, 500);
     }
   } else {

@@ -96,7 +96,7 @@ hangUpBtn.addEventListener("click", () => {
   sessionStorage.setItem("roomID", roomID);
   const isSure = confirm("Are you sure you want to Hang up ?");
   if (isSure) {
-    location.href = "/home";
+    location.href = `https://${host}:${port}/home`;
   }
 });
 sendMessageBtn.addEventListener("click", () => {

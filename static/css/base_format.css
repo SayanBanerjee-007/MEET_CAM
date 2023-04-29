@@ -7,7 +7,7 @@
 }
 body {
   --heading-color: whitesmoke;
-  --heading-font-size: min(3rem, 12cqi);
+  --heading-font-size: min(3rem, 10.5cqi);
   --heading-font-weight: bold;
   --primary-font-color: #9f3333;
   --primary-font-weight: 700;
