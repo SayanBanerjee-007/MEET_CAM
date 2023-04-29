@@ -19,7 +19,7 @@ setInterval(function urlCheck() {
   if (roomID === sessionStorage.getItem("roomID")) {
     location.href = `https://${host}:${port}/home`;
   }
-}, 100);
+}, 500);
 function addName(participantName, socketID) {
   const element = document.createElement("p");
   element.classList.add("name");
