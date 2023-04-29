@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  container-type: inline-input;
+  --secondary-font-color: white;
+  --otp-font-size: 1.5rem;
+}
+/* Pop up message ------------------------------------------------------------ */
+.pop-up-message {
+  min-height: 100dvh;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-block: 5rem;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  background-color: #00000070;
+  display: flex;
+  justify-content: center;
+  padding-block: 5rem;
+  visibility: hidden;
+}
+div.pop-up-message::-webkit-scrollbar {
+  width: 1vw;
+}
+div.pop-up-message::-webkit-scrollbar-track {
+  background: transparent;
+}
+div.pop-up-message::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+.pop-up-message.visible {
+  visibility: visible;
+}
+.pop-up-message .message-box {
+  height: fit-content;
+  border: 0.3rem double white;
+  width: min(90%, 250px);
+  background-color: #00539cff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0 0 1rem black;
+}
+.message-box > * {
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-block: 1rem;
+}
+.message-box > button {
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.733);
+  visibility: hidden;
+}
+.message-box > button:hover {
+  background-color: red;
+}
+/* Main Container ----------------------------------------------------------- */
+.main-container {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #00539cff;
+  padding-block: 5rem;
+}
+/* Form ------------------------------------------------------- */
+.main-container form {
+  background-color: #eea47fff;
+  border: 0.3rem double white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  color: #00539cff;
+  font-weight: 700;
+  padding: 0.5rem;
+}
+/* Form Heading -------------------------- */
+form > h2 {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-align: center;
+}
+/* OTP Expire Section -------------------- */
+.otp-expire-time > * {
+  text-align: center;
+}
+/* OTP Input Section --------------------- */
+.otp-input-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+.otp-input-section > input[type="text"] {
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  outline: none;
+  border: none;
+  border-bottom: 0.2rem double white !important;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  font-size: var(--otp-font-size);
+}
+/* Button ---------------------------- */
+button {
+  cursor: pointer;
+  margin: auto;
+  width: 70%;
+  height: 40px;
+  border-radius: 40px;
+  color: var(--secondary-font-color);
+  background: #ff5e0040;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+button:hover {
+  background: #ff5e0080;
+}

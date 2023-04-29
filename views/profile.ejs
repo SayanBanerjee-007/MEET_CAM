@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="css/profile.css">
+
+<%- contentFor('script') %>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script defer src="js/profile.js"></script>
+
+<%- contentFor('body') %>
+<div class="pop-up-message ">
+  <div class="message-box " id="message-box">
+    <h3></h3>
+    <h4></h4>
+    <p></p>
+    <button id="message-box-btn">OK</button>
+  </div>
+</div>
+<div class="profile-content-area">
+  <section class="image-section">
+    <% if(!haveImage) { %>
+    <div class="image-icon">
+      <img src="data:image/png;base64,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">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWUlEQVR4nO2VS0oDQRBA3yiY4A3MwpjzxANI9AAS9SJKtpq41L13MNEogkcwCh4ho+i4GGmohqJJf2ZUELGgYKCr6019G/7lhyQDzoF3oPToG3AmtrVlJwAoHd2uC2kCTxVAz8BqzOky0AfugdcKzkuPGh+3bpRLwIUYvIiGnBSiqdChBe0qyBrQWhDVTCLekDuZfO8Bjwmwnrl0p0CtBaAToBFIewMYRUBTnFS5qTMQKyaCATARNd9tdR6CGZ/ewwdgRZxsemqXA10VWSiN3oO+iiTUILmK7KAOyF4eJBT7SGw7VUGFtL2RqwTQWI1KURc0SQBdKtDHr0xdKcNomyEP2M2B9a80w0wNatcDm6v2ji3h4BI1Q2ilLSkaix6qSIycxgb2JpL/UWQFNSMQo9fIKo8V20z8vhQ7E+1ITVLerC37V8ME47rPxLGbgp5s2e96+KY6kr8nn0pDhmMoqGpWAAAAAElFTkSuQmCC">
+    </div>
+    <div class="my-image">
+      <img src="#" alt="My Profile Picture" id="my-profile-image">
+    </div>
+    <form action="profile/image_upload" method="post" enctype="multipart/form-data">
+      <input type="file" id="image-input" name="file" accept="image/jpeg,image/png,image/jpg">
+      <label for="image-input" id="image-input-label">
+        <h5>Add Image</h5>
+      </label>
+      <input type="submit" value="Save" id="image-save-button">
+      <button type="button" class="remove-button" id="remove-image-button-client">Remove Image</button>
+    </form>
+    <% }else{ %>
+    <div class="my-image" style="display: block;">
+      <img src="profile/image" alt="My Profile Picture" id="my-profile-image">
+    </div>
+    <button type="button" class="remove-button" id="remove-image-button-server" style="display: block;">Remove
+      Image</button>
+    <% } %>
+  </section>
+  <section class="user-informaiton">
+    <pre><span>Name : </span><%=name %></pre>
+    <pre><span>Email: </span><%=email %></pre>
+    <pre><span>Phone: </span><%=phoneNumber %></pre>
+  </section>
+  <section class="button-section">
+    <button id="change-password-button">Change Password</button>
+    <a href="verify_otp/delete_account">
+      <button id="delete-account-button">Delete Account</button>
+    </a>
+  </section>
+  <section class="change-password">
+    <form action="profile/change_password">
+      <div class="input-box">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <input id="old-password" type="password" required>
+        <label for="">Old Password</label>
+      </div>
+      <div class="input-box">
+        <ion-icon name="eye-off-outline" id="password-icon"></ion-icon>
+        <input id="new-password" type="password" required>
+        <label for="">New password</label>
+      </div>
+      <button id="change-password-submit-button">SUBMIT</button>
+    </form>
+  </section>
+</div>

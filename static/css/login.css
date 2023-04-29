@@ -1,0 +1,173 @@
+.main {
+  overflow: hidden;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary-font-color);
+  font-weight: var(--primary-font-weight);
+}
+/* Pop Up Message --------------------------------------------- */
+.pop-up-message {
+  color: white;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 90%;
+  min-height: 90%;
+  visibility: hidden;
+}
+div.pop-up-message::-webkit-scrollbar {
+  width: 1vw;
+}
+div.pop-up-message::-webkit-scrollbar-track {
+  background: transparent;
+}
+div.pop-up-message::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+.pop-up-message.visible {
+  visibility: visible;
+}
+.pop-up-message .message-box {
+  height: fit-content;
+  margin-block: 5rem;
+  padding: 2rem;
+  max-width: 90%;
+  min-width: 250px;
+  border-radius: var(--primary-border-radius);
+  background-color: coral;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.message-box {
+  font-size: var(--primary-font-size);
+}
+.message-box > * {
+  text-align: center;
+}
+.message-box > button {
+  margin-top: 1rem;
+  visibility: hidden;
+}
+/* Login Form --------------------------------------------------- */
+form {
+  padding-block: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--primary-border-radius);
+  box-shadow: inset 0 0 1rem black;
+  max-width: 90%;
+  min-width: 250px;
+  width: 350px;
+  margin-block: 1rem;
+}
+/* Heading ---------------------------- */
+h2 {
+  font-weight: 700;
+  text-decoration: underline dotted;
+  padding-top: 0.4rem;
+  text-align: center;
+}
+/* Input Boxes ------------------------ */
+.input-box {
+  position: relative;
+  margin-block: 30px;
+  width: 90%;
+  border-bottom: 0.3rem double #fff;
+  display: flex;
+  justify-content: center;
+}
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: var(--primary-font-size);
+  pointer-events: none;
+  transition: 0.5s;
+}
+input:focus + label,
+input:valid + label {
+  top: -15px;
+}
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+}
+.input-box ion-icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  top: 20px;
+}
+#password-icon {
+  cursor: pointer;
+}
+::-ms-reveal {
+  display: none;
+}
+/* Forget Password Section ------------ */
+.forget {
+  max-width: 100%;
+  margin: -15px 0 15px;
+  font-size: min(0.8rem, 5cqi);
+  display: flex;
+  justify-content: center;
+}
+.forget label input {
+  margin-right: 3px;
+  cursor: pointer;
+}
+.forget label a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.forget label a:hover {
+  text-decoration: underline;
+  color: red;
+}
+/* Button ----------------------- */
+button {
+  width: 70%;
+  height: 40px;
+  border-radius: 40px;
+  color: var(--secondary-font-color);
+  background: #ff5e008e;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+button:hover {
+  background: #ff5e00;
+}
+/* Register ---------------------- */
+.register {
+  font-size: min(0.8rem, 5cqi);
+  text-align: center;
+  margin: 25px 0 10px;
+}
+.register p a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.register p a:hover {
+  text-decoration: underline;
+  color: red;
+}

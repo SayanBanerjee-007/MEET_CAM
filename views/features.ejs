@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="css/features.css">
+<!-- <link rel="preload" href="css/features.css" onload="this.onload=null;this.rel='stylesheet'" as="style"> -->
+<!-- <noscript><link rel="stylesheet" href="css/features.css"></noscript> -->
+
+<%- contentFor('body') %>
+<section class="features-area">
+  <div class="card">
+    <img alt="Video Camera Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAACuklEQVR4nO2aTWgTURDH1w/wW/ELRA+C1kuhbXb+mxKqEI9eFDz0onixeCyiHor2kKKgaEAoChpMZtKKiAWPCuKhUC8ielBEEREEBRGVIF60fkSe7GrRbMwmZHfpzg/msrtvd+fHzFvyXixLURRFURRFURRFUZSZlFKptSXH2RRVFG17fS6bnW+FjRAdEKIXAlQjD6IPDJyZyGQWhZX82ciTrh13Rjs6FrQ1+RKwLQaJ+gYTHW01R8lmF/qeZKAQawHA01bmM9NKQnTD3w7RbZ+HvxRgwExK5zs7l5aJwEQXhOhryBKmgyY+lk6vFuCkAJ/cKpr0vZiJJms89MGlTGaVKZ0y0W4BBou27Zjry46zy7xUmBIaTfxKV9dKBo4z0ce/2iiQgGlOpbZIOr2OiR7PKMUfAuTdMafjJKAArGCiHAOVmm0URAAT3XSPj/u80PaibW+Mg4BiX98yAYbNZ7Pe+KAVkP91HHhd84ZEJ9zzlagEjHd3L2FgSIB3jYwPWgFFc1yAR7VuVgIO5SxrrgCfwxZQABYLcISBt0HGBxXwzE1w8J8bAZVyT88G0wZhJe8JENvewURvmhnfzFdgwEhgomNeqTPwUIgyE/398wSYCl0AMNLs+MACGPgiRHvN+aplzbnc27vcm3SY6GqYyUciQP7EXffzcliIzgXtvdkgoBqHUAGWVoClLQCdA0aSPQk6zj4BvidWgGHMcWwhupdYAQazYsxEB73FjsQJ8HB/k1xPrAAPtu2dQvQqsQJ+rwgBo0z0LZECPBggBu4nVoDfJFlXgPgvi8clAi+LG8rAZgZuNSLgYgyS9A0GnlgtwMAeBq75CwC2xlzAkNUi/91tFiAfdaI+MdX2zVEPdpz9AjyPQdKmZ98zcKrupma7KABrov6DhFl4DT1xRVEURVEURVEURbFmNT8BuMqSbsvpmakAAAAASUVORK5CYII=">
+    <h2>Video Call</h2>
+    <p>You can video call your firends. Can arrange a group meeting with quality video. You can also customize your
+      video size in PC. The biggest highlight is you can scroll through others people videos, no ned to manually
+      choose others videos.</p>
+  </div>
+  <div class="card">
+    <img alt="Mic Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADWElEQVR4nO2ay2sUQRDG56KJ4Bv1pIK6oi4kztY3LEsQ9uTFqxcRfByCIIIo+Q8UI1FRgoLkMdV5qIcQRU08+UAkgujFgxJj1OBFPUQv0RhBjdTYk0w2q3lsz+xE94OGpWamu3/TXdU91WtZhtVWWbmqheiAAm4yUR8Dn70iv4luyDXXtldacVV7Or1YAbXSaQWM/q3oe040V1UtsuIktu2NCng+FcAkIKI+17aTVhzUmkptYeDTTCHGCtHHZsfZVFSIpkxmuSJ6PWuI8dKvtm5dWjQQBuoNQPgjc7YoEK3AWga+mQKRuhrT6dWRgyigxthojI/KkchBGLhnGoSBO8UAeRsCyEDkIAoYMT61gBErTqpPJMoY6M7T0S65Zs0V1ScSZYroVp6p0x07EGV+WnmlBBKGSj4SthTReSa6GLWPKOA0A6eMgchClbtYRQHCedo1DhKFj3AcQEysIxwFyD8ztdScBCF6xkSDUW8amWhQ2jYGooC7DPxU2Wz5WCPAgGkQJnrj19+RySzw7ES3zYEQXZFK29LpdUE44yNC451uATboAHHJGIgLHPUacpw9k2xmy+HAy9ufayscxLaTeug7fRs7zhqTyQfxj8ZA8oGBa2KXvJkxEF3xKwUMNQBLArZzxvwDOOPXKzkunVbtNwrhVU50SDda69suV1Qs85JrhYO8DCbomKhO7C5w0DiIF0WIPijgS3AKKGCzpD1NpUxZpizRMBO9D0ZJo1KOs1P7Sk9wq9GUSiUk3s8C4kXQBxqAeYrovg4su6wwJeFQd6QpaJcjAkV0XPxoGhBDDBy7kEwunPCiiFzjIXeKc5BHPkxHMjk/eL0BWMFAtSK6zkDv2EEP0Ktt1XJPnk2mByF1SxtWFBLHVMAT3fCDQnK22id69FR7HIyKkUiPTLv2mWEGTs7kaMALsUR18qyuo62oJ1gM7GbgnZ7bclbY2QLsle1MMOrIb9dx1jOwTwFX/SM6eVbqsOIglc2WyzqjF82JC93vHexgHofv99amsEJsoZJwOsWRQ43xbUeY+hOINdekSiAxU2lESvqfxcAO2RcZPWcn+qqIHrqOk40KYruXGjL3rZ5bfrjAttBB5K2FCDGqS1f4INP7cMqdNt/lH0TTLQp4OtOO/QI3RIvzE1JOcwAAAABJRU5ErkJggg==">
+    <h2>Audio Call</h2>
+    <p>You can audio call the people you want, just need to share the link and accept his/her joining request. You
+      will get good quality audio of others. If want to mute you can</p>
+  </div>
+  <div class="card">
+    <img alt="Present Screen Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABIElEQVR4nO2ZQQrCMBBFcw91p27ViXrYChldSulKvZWCegElNIIgWTiZ6hT+g6wKM/zOL/NJnQMAgN5SrddDJqqZ6M7ePzo9bY8mzOeTLkRcOhfwKeiync0GakI4TqItflAtnCH2CN4fY8/g/V6tMCc7/ULEi7BcjtLLu6oV5TRqtYL/6ssQUgYmkgPWKgTWygFrOWMZjYV7xFxGY6EQcxmN5UJsZTSWCrEWbRhCPCZSAsNaffnYA9EtPogLTqXgH63VpCVz/EaMOSG71WoaiM7SyGBGyNv6379s1lshEiCkEMZEMsBahTCslQHWsvYCgzCjWfwd0UgympSqvbU5pZuUWq1waUYruQ7aLBZjp0lJRvv2hNiDqFYXAQAA7pc8AdRl6Q4xpctXAAAAAElFTkSuQmCC">
+    <h2>Screen Share</h2>
+    <p>You can easily share your screen with others within the conference. Sadly this fearure is only available in
+      latest Android/IOS browsers .</p>
+  </div>
+  <div class="card">
+    <img alt="Group Message Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEEUlEQVR4nO2ZS4gcVRSGr4qKgi7EJ/ERzPhg1Km6/189aQbF10YUURcREcGIkE1ERQQxC5OFoGgWxkdkMt3n1GRi0EFwIxEMPjYGBQVFRYJoxE1UtH3hGI3OyCmq26adTldX10z3YP9woamuuvd+9zzq3FvODTXUUEP9LxWTaxRYr+R2Jd8Q4EshawL8lTSypsAX9p/dI+Sd1Sg63w2CdoyPny3AZiU/VXIhTxPgEwUeiYNg1bIDKHmxki/YSucFWATIrLZrulS6cMkBJskTldwi5B9FAfynAYeF3FaZmDhpSSCqYTjaiwvlsND+ahgGhUIIeZMAc8sFof/CzIn3NxYCoVF0m5l7uSG0ydVi4NbeLAFcs6TxkL0dUvKqXBBTa9eeIcDBAYBYSNyM/HaGPKt7a5Cv9Hvy2goDvNwVRExe3e9Ja5tWjaIrM4MosLffE9b2LvZaVmusEXJ+gEHmNQhWdwQR8oF+T1Y7NeD+FRnkmifolfx8BYDs7wwC/NLviWrn9lMWi/w5ABNdOGIDDmcB+W7Jsg2wV4AHFSjbRmrbyMjxVq6nmfJ6IZ8wt8nQV60jSLJjKx5kxjZjHQd3zm127mireIX86AgW+TiLReICrVDLW4bPjo4ep8DjbfrdlQXk7oL8+IfpKPKuR8ki77Wq93d1fHCSPDUtm3sD8f66XiHqEnJHU9+HbI4ui8x0PVpjtytQM+PjJ1sZX4+3zA9WoujSXnaFEkUTrmAJuTXpG3i6qweVfCoXBPD9IpN4SMgDAuzZOTZ2enItis4R8s3k0A7Y2BgX2GjX7D+7p37dyvc00N/vCsTye55Tk9aB4lLpkha3eyYBAXY2X7fDvjgIVrXLTgaVLtTBrkASmCi6SICfewGxI50Wiz2frvzu5usV78+z1tLfiw1LlUpnpgvxTdcg6UpMWG3TTdpdcO6o+vP2W8jHhPxRgXfq7jLl/YiSH9j9AmxqjAdsMve0/yQML2gsCHl5LtdqgSnZSmSFsUFzD9ZGAjza7Jq5ZScYSXBmg2m4RBGqWLymC1lIRpxdt+4YIe8xd8gAc0MhFC7JoM+l1njbFampcvkUS6cdgr5W8T7qdSwl702TxJyQl7kiZS/MLAcUFuAxcEueMSbJY5V8Mh3nbyFvd0VLyJfaTPxZAe5LvkgB7zXHjMFn7b8ahkF9O2FHtvZ1q3AI9f7axVJu1fs7mu+ztBsDG5T8NZ3QvABvCfCwAFdMk+fOlssnJIEcBKttY6XA+moYnibkvvSZz2wTVjhEAkJ+2ARhVfL2etnR9vMcuTXri1WA3+t1XgzQLZVsVdOPmlu6+e5nFaySN9t7QMl302TxWwr4lQKvC/mqxUMT1B63UhV7P5akW+Brq8f6PZ+hhhrKDZb+AbaQSmxCwQcJAAAAAElFTkSuQmCC">
+    <h2>Group Message</h2>
+    <p>You can message everyone in the present in the conference. No need to use any other scoial apps to send
+      message.</p>
+  </div>
+  <div class="card">
+    <img alt="Scroll Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADDElEQVR4nO1bsW4TQRBd0gBB1HwAJmWUm3dWojQpKUKgR4Q/QJAYFIEU+UpaKuQE79igUPALtDS00IFDDwXQUxitc3YuF5/vzl7f7cGMNJLl272ZfTszO3u7o1QGer28fEUDdzSwq4G9qnEb2On4/u0WsKjyUF+pC0z0hIHfDPSrzhr4xUDDjCt18E2lFpjobdlKz4mPUkHgk5mPotfTQIuJnjvLwKdxOofciz3bnejzMbM/fFGrXVQOk/FvBn4k6Wx+M1E76g6tpJhgAkbkRV9dH7whBjbTdA5BOB62axPdGvsyTfR4hBTRS1UB0kQPs+g8cOM0N2AgiKAZqApQVp0ztWMBAGIBPKMLdOv1JbOU5snYTHvTbxp546x2kMv4/nZMxvtCXIAj0TZnttazBUAHuJ8iL/inATCzP0lW2/PuzQ0AvbJyg4H9nJncvuln0wXMIMfJMv83lVqYGwBFk1WdWQCAWACLC0BiAEsQhKwCLMsgJA9QFSBJhFBCJtgcs92cFxs5ibl7WRbQSd9u2mXf33YKAE7ZbtrmxO1rWQA0J2w3bfPE7asEQSWrAMv3AMgHES46CB6url5jos9WojzRH03UPSfD82rhKW/P/HYqCGrgru2l7tX6+tWYLo0sR9rlWQDOnsnPZAEAn5PheTVz2svAlw5w3SkAXCIBAGIBgbgAJAb0JQhCVoG+LIOQPCCYKanQRM9G6SfRU/W/5QHden1puAGZ9sJC0VTF7NUqCQAQCwimcoFmgYcbTh6MdIo+3HDtYITPdnSdZ7sEndZRE30oveojxgOdigKAHVw/rV6Dt9qxIBIAMH8LaIxiANBSjhEDD7Lop4GDYTtTKJlZgPa8rYiAnmsFUproZpp+vLFxSRN9i1jAZmYBLWAxrKgcfp9vuwTCYHDA9yT9zHMGdASkn+/W1i7nE4JTNwiFHIfFhntOMNHHBP0OYjNvnj3KjXLf1AgDRw4kOrPym0x1wUkg6JPq8FN3qAgbszczP/XgVYQGMcHztkwkLTsLTL02A+yY6s/cPh+hv6XeYBNO6oP0AAAAAElFTkSuQmCC">
+    <h2>Scrollable Video</h2>
+    <p>On this platform, You can get this amazing feature which is Scrollable Video of others. No need to manually
+      select every other participant to get their videos. Just scroll. 😎</p>
+  </div>
+  <div class="card">
+    <img alt="Mobile Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABIklEQVR4nO2azw4BMRCH+x644YopnhAPQdLhKBsnvJVN/Dk5kaV7IZjJtg3x+5JeNs1Mfu23p44x/8x0OKwzUcZER7b2EmTda61ct9tKGSIPFuA5UD7vdGrRg9xu4t50HbJhUctZuylqO2uXJjalTjFOzfX7DX9IexObUoEPeybO2vOjNv7buGr9lEFO737qqvVTBhm/uhFHNKpaPwixGzGCKMGNCGGopQRqCWGopQRqCWGopQRqCWGopQRqCWGopQRqCWGopQRqCWGopQRqCWGopQRqCWGopQRqCWGopQRqCWGopQRqfZtajuhQNCpGOX59YGDln5o3IcP4GZetf4vPTGwWg0HbEe1iDtXMer2mSYEfgFmWmoVYt1pEWbIQ38oVchxf9lvNTzUAAAAASUVORK5CYII=">
+    <h2>Mobile Support</h2>
+    <p>You can use this web app on your mobile device also. Unlike others our website is fully mobile responsive and
+      you can use it any mobile and on any browsers. Better go with the latest browsers to get most of the features.
+    </p>
+  </div>
+  <div class="card">
+    <img alt="Customization Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVR4nO1bO3LCMBBVlRyCpHNF42GfhzOESc0tQu5Cm8LrmjpDbpCQCs4AOUFI74wmnwHxs7Es2WLfzFaWRtqn99bbrFICwRbGUXTNwCMDsxT4YiBvc/zmMGNgpHNTx5DFcYeBhe9L10YG0VzneOzlF74v6YKEvUrgH9l7v6ATEoCHHQJSondj0fNBubQIT/3+TUo0NXJ721nIwHpzkd6oAkGaJLdbKiD63FnEhkxUA7FPzkW/n8yPhQCIAlgsgEbXgCoIogY4JYADDyHABDfgVUQBaJAFVGAQAiAKyK1bgIHJZpSUpNO9tSiAK9QN13uFAIgCcu8W4G3vmv/mwp5urQX43CbFxV1ZCIAogOu3wHAjTOn/f7N9bqE9LH0ACrHqq5JXPdeaAthTJa96rhAAUUBuywJDH5W86rnyF4D8BnPpA2C/ERqW8b3PvbVYoE0QAlBBAQzcp8BH0W7MexCtsiQZWFMAE628J1WehKU9AtCAhM4IIaAuBShHKHuuMwUoRxACIArIG2kBbkkIAdYUQBfeCGVJMmgVCURL7vXurBEQAoQAnFbA+qIHJlJzZIZoGgIJOvkUeCkyMjPyXrx8Dk2No+haj5QFnzzRfNLtXu2VSxbHnZBJODo4+QfNjpaI9olZGFsa6xR41TkdfHmBulx8Ayo5i49s/6fHAAAAAElFTkSuQmCC">
+    <h2>Customizable Appearance</h2>
+    <p>The best fearure you can get here is Customizable Appearance. You can literally change the background color,
+      primary text color and brightness of the main pages according to your preference. Every single day you can
+      select your themes. 😲</p>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="css/login.css">
+
+<%- contentFor('script') %>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script defer src="js/login.js"></script>
+
+<%- contentFor('body') %>
+<div class="pop-up-message ">
+  <div class="message-box " id="message-box">
+    <h3></h3>
+    <h4></h4>
+    <p></p>
+    <button id="message-box-btn">OK</button>
+  </div>
+</div>
+<form action="/login" method="post">
+  <h2>Login</h2>
+  <div class="input-box">
+    <ion-icon name="mail-outline"></ion-icon>
+    <input id="email" type="text" required>
+    <label for="">Email</label>
+  </div>
+  <div class="input-box">
+    <ion-icon id="password-icon" name="eye-off-outline"></ion-icon>
+    <input id="password" type="password" required>
+    <label for="">Password</label>
+  </div>
+  <div class="forget">
+    <label for="">
+      <!-- <input type="checkbox">Remember Me | -->
+      <a href="/forget_password">Forget Password</a>
+    </label>
+  </div>
+  <button type="button" id="submit-button">Log-in</button>
+  <div class="register">
+    <p>Don't have an account? <a href="signup">Sign-up</a></p>
+  </div>
+</form>

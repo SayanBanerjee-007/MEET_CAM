@@ -1,0 +1,170 @@
+@media screen and (max-width: 900px) {
+  /* Main Container ---------------------------------------------------------- */
+  /*  Host Specific Message ------------------- */
+  .host-message-visible {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+  }
+  /* Menu List -------------------------------- */
+  .main-container > .menu-list {
+    background-color: #0f0c29;
+    border: 2px double white;
+    position: absolute;
+    max-width: 90dvw;
+    width: 230px;
+    z-index: 4;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: var(--border-radius);
+    display: block !important;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .main-container > .menu-list.visible {
+    opacity: 1;
+    visibility: visible;
+    animation: opacityDecrease 5s 5s linear infinite;
+  }
+  @keyframes opacityDecrease {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .menu-list > p {
+    cursor: pointer;
+    caret-color: #b92b27;
+    text-align: center;
+    color: white;
+    margin: 1dvh;
+    padding: 2dvh;
+  }
+  .menu-list > p:nth-of-type(2) {
+    border-block: 2px double white;
+  }
+  .menu-list > p:nth-of-type(2) > span.invisible {
+    display: none;
+  }
+  .menu-list > p > img {
+    cursor: pointer;
+    display: inline-block;
+    width: 1rem;
+    margin: auto;
+  }
+  /* Main Area --------------------------- */
+  .main-container > .main {
+    position: relative;
+  }
+  /* Main Area -> Remote Video Grid */
+  .remote-video-grid {
+    width: 90%;
+  }
+  /* Main Area -> Right Side */
+  .right-side {
+    background: transparent !important;
+    position: absolute;
+    width: 90%;
+    justify-content: flex-end;
+  }
+  .right-side.visible {
+    background: #b92b27 !important;
+    background: -webkit-linear-gradient(to right, #1565c0, #b92b27) !important;
+    background: linear-gradient(to right, #1565c0, #b92b27) !important;
+  }
+  .local-video-grid {
+    resize: none !important;
+    position: absolute !important;
+    margin-block: 0 !important;
+    top: 0;
+    right: 0;
+  }
+  .participant-message {
+    height: 85% !important;
+    display: none !important;
+  }
+  .participant-message.visible {
+    display: block !important;
+  }
+  .participant-message > img:first-child {
+    display: inline-block !important;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 1.3rem;
+  }
+  .message-content > p {
+    font-size: 4cqi;
+  }
+  .message-content > .message-input > input {
+    font-size: min(6cqi, 1rem);
+  }
+  /* Bottom Area --------------------------- */
+  /* Bottom Area -> Meet Cam Logo */
+  .bottom > .logo {
+    display: none;
+  }
+  /* Bottom Area -> Content */
+  .bottom > .content {
+    flex-basis: 100%;
+    gap: 0;
+    justify-content: space-evenly;
+  }
+  .content > .content-children:hover {
+    background-color: yellowgreen !important;
+    transform: scale(1) translateY(0) !important;
+    box-shadow: none !important;
+  }
+  .bottom .content .content-children.number-4 {
+    display: none;
+  }
+  .bottom .content .content-children.number-5 {
+    display: block;
+  }
+  /* Bottom Area -> Copy URL Button */
+  .bottom > .copy-url-btn {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  :root {
+    --font-size: 1rem;
+  }
+  .participant-message > img:first-child {
+    top: 0.2rem;
+    left: 0.2rem;
+  }
+  .local-video-grid {
+    height: 60% !important;
+    min-height: 40% !important;
+    max-width: 20% !important;
+    min-width: 20% !important;
+  }
+  .local-video-grid.invisible {
+    display: none;
+  }
+  .heading {
+    font-size: var(--font-size);
+  }
+  .name {
+    font-size: var(--font-size);
+  }
+  .message-content p {
+    font-size: var(--font-size);
+  }
+  .message-content .chat p {
+    font-size: var(--font-size);
+  }
+  .message-content .chat p span {
+    font-size: 0.4rem;
+  }
+  .message-content .message-input {
+    height: 15%;
+  }
+  .message-input input {
+    font-size: var(--font-size) !important;
+  }
+}

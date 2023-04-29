@@ -1,0 +1,272 @@
+.main > .main-content {
+  font-family: var(--primary-font-family);
+  color: var(--primary-font-color);
+  font-weight: var(--primary-font-weight);
+  font-size: var(--primary-font-size);
+  display: flex;
+  justify-content: center;
+  container-type: input-inline;
+}
+/* Pop up Message ----------------------------------------------- */
+.pop-up-message {
+  color: white;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 90%;
+  min-height: 90%;
+  visibility: hidden;
+}
+div.pop-up-message::-webkit-scrollbar {
+  width: 1vw;
+}
+div.pop-up-message::-webkit-scrollbar-track {
+  background: transparent;
+}
+div.pop-up-message::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+.pop-up-message.visible {
+  visibility: visible;
+}
+.pop-up-message .message-box {
+  height: fit-content;
+  margin-block: 5rem;
+  padding: 2rem;
+  max-width: 90%;
+  min-width: 250px;
+  border-radius: var(--primary-border-radius);
+  background-color: coral;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.message-box {
+  font-size: var(--primary-font-size);
+}
+.message-box > * {
+  text-align: center;
+}
+.message-box > button {
+  margin-top: 1rem;
+  visibility: hidden;
+}
+/* Real content ------------------------------------------------- */
+.profile-content-area {
+  min-height: 95%;
+  height: min-content;
+  margin-block: 0.8rem;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+/* IMAGE SECTION ------------------ */
+.image-section {
+  align-self: center;
+}
+.image-section > .image-icon {
+  position: relative;
+}
+.image-section > .image-icon.invisible {
+  display: none;
+}
+.image-section > .image-icon > img:first-child {
+  width: 150px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.image-section > .image-icon > img:nth-child(2) {
+  position: absolute;
+  right: 7%;
+  bottom: 7%;
+}
+.image-section > .my-image {
+  display: none;
+}
+.image-section > .my-image.visible {
+  display: block;
+}
+.image-section > .my-image img {
+  width: 150px;
+  object-fit: cover;
+  object-position: top;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 0 0 1rem black;
+}
+.image-section > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.image-section > form > input[type="file"] {
+  display: none;
+}
+#image-input-label > h5,
+#image-input-label + input,
+.remove-button {
+  cursor: pointer;
+  padding: 0.3rem;
+  color: var(--primary-font-color);
+  border-radius: var(--primary-border-radius);
+  font-weight: var(--primary-font-weight);
+  margin: auto;
+  width: max-content;
+  text-align: center;
+  background-color: gold;
+  border: 2px solid black;
+}
+#image-input-label.invisible {
+  display: none;
+}
+#image-save-button {
+  display: none;
+}
+#image-save-button.visible {
+  display: inline-block;
+}
+#remove-image-button-client {
+  display: none;
+}
+#remove-image-button-client.visible {
+  display: block;
+}
+/* USER INFORMATION --------------------------- */
+.user-informaiton > pre {
+  margin-block: 1.5rem;
+}
+.user-informaiton > pre > span {
+  font-size: 1.5rem;
+}
+.button-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.button-section button {
+  cursor: pointer;
+  text-align: center;
+  width: min-content;
+  border-radius: var(--primary-border-radius);
+  font-size: 1.3rem;
+  padding: 0.3rem 1rem;
+  border: none;
+  transition: transform 0.2s ease-out;
+}
+.button-section button:is(:hover, :active) {
+  transform: scale(1.1);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.738);
+}
+.button-section button:first-child {
+  background-color: #1f524bde;
+  color: ghostwhite;
+}
+.button-section button:last-child {
+  background-color: black;
+  color: red;
+}
+/* Change Password ---------- */
+.change-password {
+  height: min-content;
+  transform-origin: top;
+  transform: scaleY(0.01);
+  align-self: center;
+  visibility: hidden;
+  position: absolute;
+  bottom: -50%;
+  transition: transform 0.2s ease-out;
+}
+.change-password.visible {
+  position: static;
+  visibility: visible;
+  transform: scaleX(1);
+}
+.change-password > form {
+  padding-block: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+  border: 0.3rem double white;
+  border-radius: var(--primary-border-radius);
+}
+.input-box {
+  position: relative;
+  margin-block: 15px;
+  width: 90%;
+  border-bottom: 0.3rem double #fff;
+  display: flex;
+  justify-content: center;
+}
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: var(--primary-font-size);
+  pointer-events: none;
+  transition: 0.5s;
+}
+input:focus + label,
+input:valid + label {
+  top: -15px;
+}
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+}
+.input-box ion-icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  top: 20px;
+}
+.input-box ion-icon:valid {
+  color: green;
+}
+.change-password > form > .input-box:nth-child(2) > ion-icon {
+  cursor: pointer;
+}
+.pop-up-message button,
+.change-password > form > button {
+  width: 70%;
+  height: 40px;
+  border-radius: 40px;
+  color: var(--secondary-font-color);
+  background: #ff5e0040;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+.pop-up-message button,
+.change-password > form > button:hover {
+  background: #ff5e0080;
+}
+/* Media Quries --------------------------------------------- */
+@media screen and (max-width: 900px) {
+  .profile-content-area {
+    align-items: center;
+  }
+  .button-section {
+    justify-content: center;
+  }
+}

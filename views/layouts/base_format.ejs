@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Author: Sayan Banerjee, Category: communication, Information: Best video-audio-chat conference platform">
+  <title>MEET CAM</title>
+
+  <!-- Favicon Link -------------------------------------------------------- -->
+  <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+
+  <!-- All CSS links ------------------------------------------------------- -->
+  <link rel="stylesheet" href="css/base_format.css" media="all">
+  <%- style %>
+
+  <!-- All JavaScript links and use DEFER----------------------------------- -->
+  <script defer src="js/base_format.js"></script>
+  <%- defineContent('script') %>
+
+</head>
+
+<body>
+  <audio src="../audio/click_button_sound.mp3" id="animation-audio-track"></audio>
+  <div class="main-container">
+    <div class="sidebar ">
+      <img src="../image/cross.png" id="cross-icon" alt="Cross" title="Hide sidebar">
+      <div class="sidebar-container">
+        <a href="/home" class="routes" title="Home page link">Home</a>
+        <% if(isAuthorized){ %>
+        <a href="/profile" class="routes" title="Profile page link">Profile</a>
+        <% } %>
+        <a href="/features" class="routes" title="Features page link">Features</a>
+        <a href="/appearance" class="routes" title="Appearance page link">Appearance</a>
+        <a href="/developer" class="routes" title="Developers page link">Developer</a>
+        <% if(isAuthorized){ %>
+        <a href="/logout" class="routes" title="Log-out of your account">Logout</a>
+        <% }else{ %>
+        <a href="/signup" class="routes" title="Sign-up page link">Signup</a>
+        <a href="/login" class="routes" title="Log-in page link">Login</a>
+        <% } %>
+      </div>
+    </div>
+    <div class="main" id="main">
+      <header class="header">
+        <div class="menu-icon" id="menu-icon" title="Show sidebar"></div>
+        <div class="heading">MEET CAM</div>
+        <a href="/home">
+          <img src="../image/meet_cam_logo.jpg" alt="Meet Cam Logo">
+        </a>
+      </header>
+      <% if( typeof isEmailVerified !=='undefined' && !isEmailVerified ){ %>
+      <div class="email-alert">
+        <Strong>Verify Email !!!</Strong>
+        <p>
+          <a href="verify_otp/verify_email">CLICK HERE</a> to verify your email.
+        </p>
+      </div>
+      <% } %>
+      <div class="main-content">
+        <%- body %>
+      </div>
+    </div>
+</body>
+
+</html>

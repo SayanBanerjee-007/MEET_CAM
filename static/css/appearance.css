@@ -1,0 +1,55 @@
+.main-content {
+  padding-block: 2rem;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 3rem;
+}
+/* Input Elements ---------------------------------------------- */
+.input-elements {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  color: var(--primary-font-color);
+  font-weight: var(--primary-font-weight);
+  font-size: min(1.3rem, 5cqi);
+}
+.input-elements > .inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.input-elements > * > label {
+  padding-inline: 0.3rem;
+  text-align: center;
+  border-radius: var(--primary-border-radius);
+  border-bottom: 0.3rem double white;
+}
+.input-elements > * > input {
+  cursor: pointer;
+}
+/* Buttons ----------------------------------------------------- */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+.buttons > button {
+  cursor: pointer;
+  color: var(--primary-font-color);
+  font-weight: var(--primary-font-weight);
+  border-radius: var(--primary-border-radius);
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  border: none;
+  background-color: #f5deb360;
+  box-shadow: 0 0 1rem black inset;
+  transition: transform 0.2s ease-out;
+}
+.buttons > button:is(:hover, :active) {
+  transform: scale(1.3);
+  box-shadow: 0 0 1rem black inset, 0 0 1rem #9f3333;
+}

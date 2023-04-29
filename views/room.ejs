@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Author: Sayan Banerjee, Category: communication, Information: Best video-audio-chat conference platform">
+    <title>MEET CAM</title>
+
+    <!-- Favicon Link -------------------------------------------------------- -->
+    <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon">
+
+    <!-- All CSS links ------------------------------------------------------- -->
+    <link rel="stylesheet" href="../css/room/main.css">
+    <link rel="stylesheet" href="../css/room/media_query.css">
+
+    <!-- All JavaScript links and use DEFER----------------------------------- -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script>
+        roomID = "<%=roomID%>";
+        myName = "<%=myName%>";
+    </script>
+    <script defer src='../js/room/basic_event.js'></script>
+    <script defer src='../js/room/chat_message.js'></script>
+    <script defer src='../js/room/media_stream.js'></script>
+
+
+</head>
+
+<body>
+    <div class="host-leave-notification">
+        <div class="card">
+            <div class="ring"></div>
+            <p>Redirectig to Home page..</p><br>
+            <p>The HOST end the call.</p>
+        </div>
+    </div>
+    <div class="main-container">
+        <div id="host-message" class="host-message">
+            <p></p>
+            <div class="buttons">
+                <button id="deny-btn">Deny</button>
+                <button id="allow-btn">Allow</button>
+            </div>
+        </div>
+        <div id="decline-message" class="host-message">
+            <p>Your joining request has been declined.</p>
+            <div class="buttons">
+                <button id="decline-btn">Okay</button>
+            </div>
+        </div>
+        <div class="menu-list" id="menu-list">
+            <p id="menu-list-participant-message-btn"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAET0lEQVR4nO2a3U9cRRTAZ7UaH/TVr79BTRT74stNdmZbmVkw68w0fAZqBdq0tKGL2DRNaGJRDAqYphaEtmBaa6wJD/g3qGVpqbb61D5Y2heVttJdNirsmHPhwuxlkYV1l511fslJbu7O3TvnzPma2UXIYrFYLBaLxWKxWCwFIbCDyTLMRC2mvM0VJmqD4cgr8BkqVRwqn8WU92PK7xImVCaBzzDlfcGKqmdQCREIMtGBGY+vpfgqofwhobzdeI9wnIYnCOUX/QruqntbdX3YpwaGRtTpoRH3Gu6t8ggmvoDvQIYS8Cu/71CHmrx6TaVSKeUH7sWuTKm9B99ZZQQjPSHIRIeuCKz0wsKCWo/5+Xl1avCs3xuiyCRCocjThIpZTwFw9Y2SZgTKH0ISRaaAKe/X3T6blc/kCb5w6EWGENBLHcT8ZpmYnNK94I4RuYCU81eXs319U8aEly3wrKzds2yEpWapuCHlssabMJS3XHmvu3fFAExUoWKHUN7uTXjwzOc5G2BgeNSsakCYiC5n/+HR3A0wNLLSE4TlYVTsEMqr/9chsIPJMr3lzTUJCi0J4tf5y8i0MjgxObVpA1yOXdHjf9qIMgjAltabODQz0NRsFHim+UC73gd8jExthU8Nnt2wAU6eHk5rhY07IyBaOfSMkI0nwJg05RcPStqQgQRgK6srAuEAOWGt7TDEfJrbL67+eWNi3w8cZviNAALt7YnuXneLDAKlTs/2K8IvmHwg4hFwmyM45sr6SEzMLrm9mSufCUhisKWFXd2/KD8N2R6SKCphAtDQQMfoHYu714tNTumsuMViWYWU8nEcjmwnlO/CTDYTxt8Fca/hXjiyHcagUoKUyxcxFV2YiRim/M/1SqA7hooJzPiJEIu8gEykrKz5Mcz4W4SKG1nX/jUNIq6HqGx0HGcbMoEQ5XWEiVuZlAmFpdrdclAd7+pRfScH1NC5867ANdxrbG51x2Q2Br8J542oWCGVVc8Txr/xT7yC16kPej5R312OqXg8se5mCMZ8+31Mvd/T7z6bwRjjO3dGnkPFRLBchjDj9/SJ8urd6stLY2oumVSbBZ69+NWY+11pYcH4DAlzjIoBzHgDYfwv3c0//excTor7SczNudtpPTwWk6Ws31LlCZP7CBMpb1I1jXvVjzd+Vvnih+s/qeqGFt0bUkEqWrZGeSoZYeJvbzJN+w+rX3/7XeWbmZl7ab8ZYsrnMeVvFFT5YAV/Sf/HR2v0qOumhSKRmFMH2o7oOSEO/UZBlHccZxtmfNJ7ef2e/er+/Qeq0Dz4Y1Y1NLXq/cI16D/ybgBMxTHvpezNWnV7+q7aKn65fUexSI1uhGN5VV5K+aju+l+Pjaut5tLYeFoodHZ2PpJXI2DGp+Bl7UeP5/Srz38F/PkieqRzyQAihvKNI+WTwyMXDsXjiY+UUt3FIMlksmfwzGj0tcrKp/JuAIvFYrFYLBZUIvwDeHi9UYJaONEAAAAASUVORK5CYII=">
+                Participants & Group-message
+            </p>
+            <p id="menu-list-present-screen-btn" data-state="inactive"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA20lEQVR4nO3WYQqCQBCG4b1Ekve/SdIF8kfHeUPQIlltR0bbwe+FQFpYeZiBSkkppdQ/A+7Eq8tBQpaWIClICHL2iQDN8AkNAS7AA3gCbUgIH8SUK4YjIOM69eOV/ey5CQHhexLDFK6Z79qqIWQQK2dtlRBWEHtg2ANSgvDG4A2xIDwxeEK2ILwweEEyvxPZ5vevZMK4QEoRRogJ4wLZ8qK9738nyEKaSGFaLWtarcK0Wta0WoVptaz9+u8VbiLzvO9PxQeVhiCVxWkmEq2UgXTE63bQAiillErZXi/0eSmapt4pAAAAAElFTkSuQmCC">
+                <span>Present screen</span>
+                <span class="invisible">Stop presenting</span>
+            </p>
+            <p id="menu-list-copy-link-btn"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAklEQVR4nO1ZW4rCMBS9IFQX4APE11psdQ26BTegW9AF+EBwAd2FKLoJX1X8EH+qP35YOEMCDZEZHLHN1DI5kA9jOcm5uTdJT4mIEPNGUU8AWgBFH0XoFKI3olCpVDAajXA4HOB5HoLA8zzOMxwOUS6X1RdxvV7H9XqFClwuF1iWpU4Ai7yqycsiSqWSGgEsbXxsNhtUq1UYhhGoGA3DgGma2G63gnswGKgRwHLVB5t8mLuKaZqC23GccASk02nYti1+ywUbNPL0w0r4YOMEFpDL5bBerzmh3ycjzMnTe/zPH5hMJt/IYiXgfD7HW4AMLYD0CkCnEOkiJr0Lkd5GJeiDjPRJTPoqQfoyR/o2Cn2dJv1Cgz97I4uVK+FJk00kErxvv98r84UsyxLcu90uuIDj8SgI8/k872MGrA/mpLFBw3DmarXagzPX7/eDC5jNZoKw0WjwPuYeM+9SJVzXDccb7XQ6gpSJkZdalQjXdbnF+OLqPX+gWCzidrsJ8larJf5jEWLLzDzMML4POI7D+V6M/GsCWOv1emKg+/3+IOIDGv36UCqVwnK5fIjYfD5Hs9lEoVAQu9PHCiAiZLNZLBYLqIItud9KBLCWTCbR7XYfaiIMrFYrbuErFyAXdrvdxnQ65efEuwV8Op0wHo+RyWTUp9AHN4p6AtACKPoo4t+m0BcEbkqT3cl4IgAAAABJRU5ErkJggg==">
+                Copy link
+            </p>
+        </div>
+        <div class="main">
+            <div class="remote-video-grid" id="remote-video-grid">
+                <div class="joining-message"></div>
+
+            </div>
+            <div class="right-side">
+                <div class="local-video-grid" id="local-video-grid">
+
+                </div>
+                <div class="participant-message">
+                    <img id="right-side-cross-btn"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiElEQVR4nO2ayW8cRRTG+4QUhSPu7lfTowiCgDsSSJzzRyCO/AU5YgPJjI0NURTLTuIBy4mSGNmunthBYgtrLAQYDlxAIUgsN6yQA/IsnsVjxh961TNWDEYzvdRMA/VJpZEvfv39antVryzLyMjIyMjIyMjIyCisUBx5EFI8C0kFSLoOSVch6SRW3WOJx5LiBKSYh09fQYof4NM6JOWxkj2edKy+BF88Dynu4e0M8IkHrHvAxx7wTgbwqQVJF1H0jsSOs5wVyqwvcHij1u5VsYRF62jcWH0Lks7iLQF87gGfecBND3g3A9zMBL/dj5PiGxTdkchxVukJSPr1n80Hrf0moT7t/o7T1gNRY4Xr+RsC2OiY7vFxkPRdFAiBeXG35/8PQKM+Q6hOuT+HjRNlzt9TPd+P+YgQQpnvtGaBUD5toz4rntEIgJ5Tc56HfYiP67Q7KI64vWOIx+HTZtj/zwAq4w62X3M39AGQVFALHs/18AB6joQoPd9ZCNG4QKhOuKhM2CV9AHyxhlshh3+fEKKb50VQoHGeUM45KOfthj4Akq7gUw94LwaAQyDEMc9t5w1SALbGbB4BWzoBnMT7GahREAfAfRDimv/jWtD7tTMutl6wsX3G/VIfgFX3GK5TCxtZ4EYmAQjidhzz7UWh5n5jxkXpRRulURu1s5mntQFgqQyPp8AXWWA1AQhxzJ8n1GeD7Y97vzrp/GTpForeEZXhfcgQvKFAOGA+5yjz5ZzdHEgmyFJz16dv8UF3JAzQfGfFb8wSKrmg58t5e6e68LBjDVIYAoTUmB8GhNSZPwCBtzSNEFJrfhAQUm9eN4Tm3L/AvE4Ie0sC1fFgq6vkUmz+IARxez9PKMaHsHuZj7p2PfXmD5zn+dAU7d4g1n1CuswXE98R0gsB+s2nFwIGZz59EDB48+mBgOGZDxpXiNYeov+neT9o7RXxY/OaeGw45j8arvlua12m32qvO08NxvyyqtVtqiuxtUxo83yZwent3hIlBmBvWaB+zm02CvYj+gH4tK5Mc7ob4yaH01vO8JKC0JgjVF5xynrNS3EiyWssTm/V2SEBADvzhErewfY5Z1QngPmkj7T7B6gEAGxPOTwK7uoD4NPXifT8X051SUDg2mD1VRflU86uRgDiTtLmk4DAiyDHqU46KL1k72kEQLd0mI8LoXUpKI2VTzmaR4CkfBjzUW5ywkII1heB2nRQGqtM6lwDVrLH1fufXrW6C+F6/m9x1hy7vSK+78d882IAmnt/a9RGfcYes3Rq94pY5sD8LGX/Y2TwMd0qLdfquuWqqNdYjQXv0dYCbfL8PmzOB8NeBKOse2U24VQt3cKidZQfJPGbHM7oePVVBUo23qnScqGyW66Kc41VK9CTKsObI7XNcVPxOrHq02rVV7FKLzvtgWSCLK7BVSbdX7iXK+MuqhNOMNzHAuNcpeVCZRK1OjbFGZ5KcqYctdXxat81zsOee35g5u8XP0jiNzn8LKWcc+r8y/V5HSVqzvA4yeFVnrc6/uW/tc95IyMjIyMjIyMjI+s/qT8B3zoZxFNUFQ8AAAAASUVORK5CYII=">
+                    <div class="participant-message-nav">
+                        <div class="participant" id="participant-nav-btn" title="Participants in the call">
+                            <p class="heading no1"> PARTICIPANT</p>
+                        </div>
+                        <div class="message" title="Group messages" id="message-nav-btn">
+                            <p class="heading no2"> MESSAGE</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="participant-content">
+                            <section>
+
+                            </section>
+                        </div>
+                        <div class="message-content" id="message-content">
+                            <p>In call Group-message</p>
+                            <div class="chat" id="chat">
+
+                            </div>
+                            <div class="message-input">
+                                <input type="text" name="mmessage-text" id="message-text" autocomplete="off">
+                                <button title="Send message" id="send-message-btn"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <a class="logo" href="/" target="_blank"></a>
+            <div class="content">
+                <div class="content-children number-1 " id="camera-btn" title="Turn off camera"></div>
+                <div class="content-children number-2 " id="mic-btn" title="Mute"></div>
+                <div class="content-children number-3" id="hang-up-btn" title="Hang up"></div>
+                <div class="content-children number-4" id="present-screen-btn" title="Present screen"></div>
+                <div class="content-children number-5" id="menu-btn" title="Menu"></div>
+            </div>
+            <div class="copy-url-btn" id="copy-url-btn" title="copy meet link">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

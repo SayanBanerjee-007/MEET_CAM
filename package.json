@@ -1,0 +1,33 @@
+{
+  "name": "meet_cam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "devStart": "nodemon -e css,js,ejs ./server.js"
+  },
+  "keywords": [],
+  "author": "Sayan Banerjee",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "gridfs-stream": "^1.1.1",
+    "http-proxy-middleware": "^2.0.6",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.10.5",
+    "multer": "^1.4.4",
+    "multer-gridfs-storage": "^5.0.2",
+    "nodemailer": "^6.9.0",
+    "otp-generator": "^4.0.0",
+    "peer": "^0.6.1",
+    "socket.io": "^4.6.0",
+    "uuid": "^9.0.0",
+    "uuid-validate": "^0.0.3"
+  }
+}

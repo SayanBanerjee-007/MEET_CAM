@@ -1,0 +1,104 @@
+.main > .main-content {
+  font-family: var(--primary-font-family);
+  padding-block: .8rem;
+  display: flex;
+  justify-content: center;
+  container-type: input-inline;
+}
+/* Home Content Area ------------------------------------------ */
+.home-content-area {
+  margin-block: auto;
+  min-height: 95%;
+  height: min-content;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 3rem;
+  column-gap: 2rem;
+}
+/* Home Content Area Introduction ---------- */
+.home-introduction {
+  grid-column: span 2;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  color: var(--primary-font-color);
+  font-weight: var(--primary-font-weight);
+  display: block;
+}
+.home-introduction > h1:first-child {
+  font-size: 48px;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.home-introduction > h1 {
+  display: inline-block;
+}
+.home-introduction > p {
+  font-style: italic;
+  margin-bottom: .3rem;
+}
+.home-introduction > p:first-of-type {
+  margin-top: 1rem;
+}
+.home-introduction > p > span {
+  font-weight: 1000;
+  font-style: normal;
+  font-family: monospace;
+  color: black;
+}
+.home-introduction > p > span::after{
+  content:" :";
+  width: min-content;
+}
+/* Home Content ImageS --------------------- */
+.home-content-area > .image-div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.home-content-area > .image-div > img {
+  min-width: 250px;
+  width: min(350px, 90%);
+  border-radius: var(--primary-border-radius);
+}
+/* Join Video Area ----------------------- */
+.home-content-area > .joining-area {
+  height: max-content;
+  grid-column: span 2;
+}
+.joining-area > h1 {
+  color: var(--primary-font-color);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.joining-area > a {
+  font-size: larger;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 0.9rem;
+  width: 10rem;
+  aspect-ratio: 3/1;
+  margin-top: min(3rem, 5%);
+  margin-left: min(10rem, 5%);
+  background-color: brown;
+  color: whitesmoke;
+  border-radius: var(--primary-border-radius);
+}
+.joining-area > a:hover {
+  box-shadow: inset 0 0 1rem wheat;
+}
+.joining-area > a > span{
+  margin-inline: .3rem;
+}
+/* Media Quries =============================================== */
+@media screen and (max-width: 900px) {
+  .main-content > .home-content-area {
+    grid-template-columns: 1fr;
+  }
+  .home-content-area > * {
+    grid-column: span 3;
+  }
+}

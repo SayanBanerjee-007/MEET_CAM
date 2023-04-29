@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="css/appearance.css">
+
+<%- contentFor('script') %>
+<script defer src="js/appearance.js"></script>
+
+<%- contentFor('body') %>
+<div class="input-elements">
+  <div class="inputs background-color">
+    <label for="background-color">Choose Background Color : </label>
+    <input type="color" id="background-color" data-used="false">
+  </div>
+  <div class="inputs primary-font-color">
+    <label for="font-color">Choose Primary Font Color : </label>
+    <input type="color" id="font-color" value="#9f3333">
+  </div>
+  <div class="inputs brightness">
+    <label for="brightness-input">Choose Display Brightness : </label>
+    <input type="range" id="brightness-input" min="30" value="100" max="170">
+  </div>
+</div>
+<div class="buttons">
+  <button id='reset-button' title="Reset appearance">Reset</button>
+  <button id="save-button" title="Save selected appearance">Save</button>
+</div>
