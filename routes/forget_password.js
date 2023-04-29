@@ -28,7 +28,7 @@ router
         );
         res.cookie("FPAT", jwtValue, {
           maxAge: 1000 * 60 * 7,
-          secure: false,
+          secure: true,
           httpOnly: true,
         });
         return res.status(200).json({});

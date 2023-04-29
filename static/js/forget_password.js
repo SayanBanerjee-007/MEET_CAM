@@ -48,7 +48,7 @@ messageBoxBtn.addEventListener("click", () => {
 submitButton.addEventListener("click", async (event) => {
   event.preventDefault();
   if (isEmailValid()) {
-    const resJSON = await fetch(`http://${host}:${port}/${pathname}`, {
+    const resJSON = await fetch(`https://${host}:${port}/${pathname}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ submitButton.addEventListener("click", async (event) => {
     });
     const resValue = await resJSON.json();
     if (resJSON.status === 401) {
-      location.href = `http://${host}:${port}/home`;
+      location.href = `https://${host}:${port}/home`;
     } else if (resJSON.status === 500) {
       popup(
         "😢",
@@ -69,7 +69,7 @@ submitButton.addEventListener("click", async (event) => {
     } else if (resJSON.status === 400) {
       popup("🤨", "Invalid Email", "Please check your email and try again.");
     } else if (resJSON.status === 200) {
-      location.href = `http://${host}:${port}/verify_otp/forget_password`;
+      location.href = `https://${host}:${port}/verify_otp/forget_password`;
     }
   } else {
     popup("🤨", "Invalid Email", "Please check your email and try again.");

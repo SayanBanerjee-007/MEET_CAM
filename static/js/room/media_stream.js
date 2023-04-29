@@ -1,7 +1,7 @@
 // All Global Variables ----------------------------------------------------------------
 const peer = new Peer(undefined, {
   host: location.hostname,
-  secure: false,
+  secure: true,
   port: location.port,
   path: "peerJS",
 });

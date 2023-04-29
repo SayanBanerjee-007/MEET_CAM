@@ -80,7 +80,7 @@ messageBoxBtn.addEventListener("click", () => {
 submitButton.addEventListener("click", async (event) => {
   event.preventDefault();
   if (isValidForm()) {
-    const resJSON = await fetch(`http://${host}:${port}/${pathname}`, {
+    const resJSON = await fetch(`https://${host}:${port}/${pathname}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -92,7 +92,7 @@ submitButton.addEventListener("click", async (event) => {
     });
     const resValue = await resJSON.json();
     if (resJSON.status === 403) {
-      location.href = `http://${host}:${port}/home`;
+      location.href = `https://${host}:${port}/home`;
     } else if (resJSON.status === 500) {
       popup(
         "😢",

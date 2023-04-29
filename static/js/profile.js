@@ -90,7 +90,7 @@ removeImageButtonClient?.addEventListener("click", () => {
 });
 removeImageButtonServer?.addEventListener("click", async () => {
   const resJSON = await fetch(
-    `http://${host}:${port}/${pathname}/image_delete`,
+    `https://${host}:${port}/${pathname}/image_delete`,
     {
       method: "DELETE",
       headers: {
@@ -111,7 +111,7 @@ changePasswordSubmitButton.addEventListener("click", async (event) => {
     isPasswordValid(newPassword.value)
   ) {
     const resJSON = await fetch(
-      `http://${host}:${port}/${pathname}/change_password`,
+      `https://${host}:${port}/${pathname}/change_password`,
       {
         method: "PUT",
         headers: {
@@ -124,7 +124,7 @@ changePasswordSubmitButton.addEventListener("click", async (event) => {
       }
     );
     if (resJSON.status === 401) {
-      location.href = `http://${host}:${port}/home`;
+      location.href = `https://${host}:${port}/home`;
     } else if (resJSON.status === 500) {
       popup(
         "😢",

@@ -36,7 +36,7 @@ router
           );
           res.cookie("UAT", jwtValue, {
             maxAge: 1000 * 60 * 60 * 24 * 10,
-            secure: false,
+            secure: true,
             httpOnly: true,
           });
           res.clearCookie("FPAT");

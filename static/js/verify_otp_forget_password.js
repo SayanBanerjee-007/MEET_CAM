@@ -109,13 +109,13 @@ submitButton.addEventListener("click", async (event) => {
       false
     );
     setTimeout(() => {
-      location.href = `http://${host}:${port}/forget_password`;
+      location.href = `https://${host}:${port}/forget_password`;
     }, 2000);
     return;
   }
 
   if (otp.length === 6 && isPasswordValid()) {
-    const resJSON = await fetch(`http://${host}:${port}/${pathname}`, {
+    const resJSON = await fetch(`https://${host}:${port}/${pathname}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -126,7 +126,7 @@ submitButton.addEventListener("click", async (event) => {
       }),
     });
     if (resJSON.status === 400) {
-      location.href = `http://${host}:${port}/login`;
+      location.href = `https://${host}:${port}/login`;
     } else if (resJSON.status === 500) {
       popup(
         "😢",
@@ -145,7 +145,7 @@ submitButton.addEventListener("click", async (event) => {
         false
       );
       setTimeout(() => {
-        location.href = `http://${host}:${port}/login`;
+        location.href = `https://${host}:${port}/login`;
       }, 1500);
     }
   } else {

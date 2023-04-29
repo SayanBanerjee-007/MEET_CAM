@@ -85,7 +85,7 @@ submitButton.addEventListener("click", async (event) => {
   const otp = getInputValue();
 
   if (otp.length === 6) {
-    const resJSON = await fetch(`http://${host}:${port}/${pathname}`, {
+    const resJSON = await fetch(`https://${host}:${port}/${pathname}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -93,7 +93,7 @@ submitButton.addEventListener("click", async (event) => {
       body: JSON.stringify({ otp }),
     });
     if (resJSON.status === 401) {
-      location.href = `http://${host}:${port}/home`;
+      location.href = `https://${host}:${port}/home`;
     } else if (resJSON.status === 500) {
       popup(
         "😢",
@@ -110,7 +110,7 @@ submitButton.addEventListener("click", async (event) => {
         false
       );
       setTimeout(() => {
-        location.href = `http://${host}:${port}/home`;
+        location.href = `https://${host}:${port}/home`;
       }, 1500);
     }
   } else {
