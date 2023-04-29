@@ -17,7 +17,7 @@ let permissionRequestersQueue = [];
 // All Global Functions ----------------------------------------------------------------
 setInterval(function urlCheck() {
   if (roomID === sessionStorage.getItem("roomID")) {
-    location.href = "/home";
+    location.href = `https://${host}:${port}/home`;
   }
 }, 100);
 function addName(participantName, socketID) {
@@ -93,9 +93,9 @@ denyBtn.addEventListener("click", () => {
 hangUpBtn.addEventListener("click", () => {
   peer.destroy();
   socket.disconnect();
-  sessionStorage.setItem("roomID", roomID);
   const isSure = confirm("Are you sure you want to Hang up ?");
   if (isSure) {
+    sessionStorage.setItem("roomID", roomID);
     location.href = `https://${host}:${port}/home`;
   }
 });
