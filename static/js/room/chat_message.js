@@ -47,9 +47,9 @@ function timeStringFunction() {
     return `${hours}:${minutes} AM`;
   } else {
     if (minutes < 10) {
-      return `${hours === 12 ? hours : hours - 1}:0${minutes} PM`;
+      return `${hours === 12 ? hours : hours - 12}:0${minutes} PM`;
     }
-    return `${hours === 12 ? hours : hours - 1}:${minutes} PM`;
+    return `${hours === 12 ? hours : hours - 12}:${minutes} PM`;
   }
 }
 function addChatMessage(chatMessage, timeString, type = "local") {
