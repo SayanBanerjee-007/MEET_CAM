@@ -190,39 +190,33 @@ socket.on("media-update-outgoing", (mediaType, peerID) => {
 
 // Peer Events -----------------
 peer.on("call", (call) => {
-  if (!document.getElementById(call.peer)) {
-    call.answer(localStream);
-    call.on("stream", (oldUserStream) => {
+  call.answer(localStream);
+  call.on("stream", (mediaOrScreenStream) => {
+    if (!document.getElementById(call.peer)) {
       const { name } = globalUsers.find((user) => user.peerID === call.peer);
-      addStream("remote", oldUserStream, call.peer, name);
-    });
-  } else {
-    call.answer(localStream);
-    call.on("stream", (OldUserUpdatedOrScreenStream) => {
+      addStream("remote", mediaOrScreenStream, call.peer, name);
+    } else if (
+      mediaOrScreenStream.id ===
+      document.getElementById(call.peer).firstElementChild.srcObject.id
+    ) {
       const remoteVideoDiv = document.getElementById(call.peer);
-      if (
-        OldUserUpdatedOrScreenStream.id ===
-        remoteVideoDiv.firstElementChild.srcObject.id
-      ) {
-        remoteVideoDiv.firstElementChild.srcObject =
-          OldUserUpdatedOrScreenStream;
-        remoteVideoDiv.firstElementChild.addEventListener(
-          "loadedmetadata",
-          () => {
-            remoteVideoDiv.firstElementChild.play();
-          }
-        );
-      } else {
-        const { name } = globalUsers.find((user) => user.peerID === call.peer);
-        addStream(
-          "remote",
-          OldUserUpdatedOrScreenStream,
-          call.peer + "present",
-          name + " (presenting)",
-          true
-        );
-        joinAndLeaveMessage(name, "screen");
-      }
-    });
-  }
+      remoteVideoDiv.firstElementChild.srcObject = mediaOrScreenStream;
+      remoteVideoDiv.firstElementChild.addEventListener(
+        "loadedmetadata",
+        () => {
+          remoteVideoDiv.firstElementChild.play();
+        }
+      );
+    } else {
+      const { name } = globalUsers.find((user) => user.peerID === call.peer);
+      addStream(
+        "remote",
+        mediaOrScreenStream,
+        call.peer + "present",
+        name + " (presenting)",
+        true
+      );
+      joinAndLeaveMessage(name, "screen");
+    }
+  });
 });

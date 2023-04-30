@@ -65,10 +65,10 @@ function addChatMessage(chatMessage, timeString, type = "local") {
 
 // All Event Listeners ----------------------------------------------------------------
 window.onpageshow = () => {
-  if (roomID === sessionStorage.getItem("roomID")) { 
+  if (roomID === sessionStorage.getItem("roomID")) {
     location.href = `https://${host}:${port}/home`;
   }
-}
+};
 // Document Events ----------------
 allowBtn.addEventListener("click", () => {
   socket.emit(
@@ -93,11 +93,8 @@ denyBtn.addEventListener("click", () => {
 hangUpBtn.addEventListener("click", () => {
   peer.destroy();
   socket.disconnect();
-  const isSure = confirm("Are you sure you want to Hang up ?");
-  if (isSure) {
-    sessionStorage.setItem("roomID", roomID);
-    location.href = `https://${host}:${port}/home`;
-  }
+  sessionStorage.setItem("roomID", roomID);
+  location.href = `https://${host}:${port}/home`;
 });
 sendMessageBtn.addEventListener("click", () => {
   const chatMessage = messageText.value;
