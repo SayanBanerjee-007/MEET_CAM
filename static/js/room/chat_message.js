@@ -15,7 +15,11 @@ let recentPermissionRequesterPeerID;
 let permissionRequestersQueue = [];
 
 // All Global Functions ----------------------------------------------------------------
-
+window.addEventListener("focus", () => {
+  if (roomID === sessionStorage.getItem("roomID")) {
+    location.href = `https://${host}:${port}/home`;
+  }
+});
 function addName(participantName, socketID) {
   const element = document.createElement("p");
   element.classList.add("name");
@@ -204,7 +208,7 @@ socket.on("participant-disconnected", (socketID) => {
     (obj) => obj.socketID === socketID
   );
   document.getElementById(disconnectedUserDetails.peerID).remove();
-  document.getElementById(disconnectedUserDetails.peerID+"present")?.remove();
+  document.getElementById(disconnectedUserDetails.peerID + "present")?.remove();
   document.getElementById(socketID).remove();
   globalUsers.splice(globalUsers.indexOf(disconnectedUserDetails), 1);
 });
