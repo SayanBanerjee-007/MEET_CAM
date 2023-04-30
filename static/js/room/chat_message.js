@@ -14,8 +14,6 @@ let recentPermissionRequesterSocketID;
 let recentPermissionRequesterPeerID;
 let permissionRequestersQueue = [];
 
-sessionStorage.setItem("roomID", roomID);
-
 // All Global Functions ----------------------------------------------------------------
 function addName(participantName, socketID) {
   const element = document.createElement("p");
@@ -70,6 +68,7 @@ window.onpageshow = () => {
   if (roomID === sessionStorage.getItem("roomID")) {
     location.href = `https://${host}:${port}/home`;
   }
+  sessionStorage.setItem("roomID", roomID);
 };
 // Document Events ----------------
 allowBtn.addEventListener("click", () => {
