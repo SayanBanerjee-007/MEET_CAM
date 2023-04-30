@@ -15,11 +15,6 @@ let recentPermissionRequesterPeerID;
 let permissionRequestersQueue = [];
 
 // All Global Functions ----------------------------------------------------------------
-window.addEventListener("focus", () => {
-  if (roomID === sessionStorage.getItem("roomID")) {
-    location.href = `https://${host}:${port}/home`;
-  }
-});
 function addName(participantName, socketID) {
   const element = document.createElement("p");
   element.classList.add("name");
@@ -69,6 +64,11 @@ function addChatMessage(chatMessage, timeString, type = "local") {
 }
 
 // All Event Listeners ----------------------------------------------------------------
+window.onpageshow = () => {
+  if (roomID === sessionStorage.getItem("roomID")) { 
+    location.href = `https://${host}:${port}/home`;
+  }
+}
 // Document Events ----------------
 allowBtn.addEventListener("click", () => {
   socket.emit(
