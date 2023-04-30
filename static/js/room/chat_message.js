@@ -15,11 +15,7 @@ let recentPermissionRequesterPeerID;
 let permissionRequestersQueue = [];
 
 // All Global Functions ----------------------------------------------------------------
-// setInterval(function urlCheck() {
-//   if (roomID === sessionStorage.getItem("roomID")) {
-//     location.href = `https://${host}:${port}/home`;
-//   }
-// }, 500);
+
 function addName(participantName, socketID) {
   const element = document.createElement("p");
   element.classList.add("name");
