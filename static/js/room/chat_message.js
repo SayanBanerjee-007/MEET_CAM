@@ -14,6 +14,8 @@ let recentPermissionRequesterSocketID;
 let recentPermissionRequesterPeerID;
 let permissionRequestersQueue = [];
 
+sessionStorage.setItem("roomID", roomID);
+
 // All Global Functions ----------------------------------------------------------------
 function addName(participantName, socketID) {
   const element = document.createElement("p");
@@ -93,7 +95,6 @@ denyBtn.addEventListener("click", () => {
 hangUpBtn.addEventListener("click", () => {
   peer.destroy();
   socket.disconnect();
-  sessionStorage.setItem("roomID", roomID);
   location.href = `https://${host}:${port}/home`;
 });
 sendMessageBtn.addEventListener("click", () => {
