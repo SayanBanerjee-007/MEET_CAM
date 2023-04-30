@@ -121,7 +121,6 @@ cameraBtn.addEventListener("click", async () => {
     cameraBtn.title = "Turn off camera";
   }
   cameraBtn.classList.toggle("camera-off");
-  cameraBtn.classList.toggle("number-1");
 });
 micBtn.addEventListener("click", async () => {
   if (!micBtn.classList.contains("mic-off")) {
@@ -139,7 +138,6 @@ micBtn.addEventListener("click", async () => {
     micBtn.title = "Mute";
   }
   micBtn.classList.toggle("mic-off");
-  micBtn.classList.toggle("number-1");
 });
 presentScreenBtn.addEventListener("click", async () => {
   if (!presentScreenBtn.classList.contains("red")) {
