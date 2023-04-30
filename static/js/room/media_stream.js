@@ -98,14 +98,7 @@ function callNewUser(peerID, newParticipantName) {
   const callingObject = peer.call(peerID, localStream);
   callingObject.on("stream", (newUserStream) => {
     if (!document.getElementById(peerID)) {
-      const remoteStream = new MediaStream();
-      if (newUserStream.getVideoTracks().length > 0) {
-        remoteStream.addTrack(newUserStream.getVideoTracks()[0]);
-      }
-      if (newUserStream.getAudioTracks().length > 0) {
-        remoteStream.addTrack(newUserStream.getAudioTracks()[0]);
-      }
-      addStream("remote", remoteStream, peerID, newParticipantName);
+      addStream("remote", newUserStream, peerID, newParticipantName);
     }
   });
 }
@@ -201,33 +194,31 @@ socket.on("media-update-outgoing", (mediaType, peerID) => {
 peer.on("call", (call) => {
   if (!document.getElementById(call.peer)) {
     call.answer(localStream);
-    call.on("stream", (newUserStream) => {
-      if (!document.getElementById(call.peer)) {
-        const remoteStream = new MediaStream();
-        if (newUserStream.getVideoTracks().length > 0) {
-          remoteStream.addTrack(newUserStream.getVideoTracks()[0]);
-        }
-        if (newUserStream.getAudioTracks().length > 0) {
-          remoteStream.addTrack(newUserStream.getAudioTracks()[0]);
-        }
-        const { name } = globalUsers.find((user) => user.peerID === call.peer);
-        addStream("remote", remoteStream, call.peer, name);
-      }
+    call.on("stream", (oldUserStream) => {
+      const { name } = globalUsers.find((user) => user.peerID === call.peer);
+      addStream("remote", oldUserStream, call.peer, name);
     });
   } else {
     call.answer(localStream);
-    call.on("stream", (newUserStream) => {
-      const divElement = document.getElementById(call.peer);
-      if (newUserStream.id === divElement.firstElementChild.srcObject.id) {
-        divElement.firstElementChild.srcObject = newUserStream;
-        divElement.firstElementChild.addEventListener("loadedmetadata", () => {
-          divElement.firstElementChild.play();
-        });
+    call.on("stream", (OldUserUpdatedOrScreenStream) => {
+      const remoteVideoDiv = document.getElementById(call.peer);
+      if (
+        OldUserUpdatedOrScreenStream.id ===
+        remoteVideoDiv.firstElementChild.srcObject.id
+      ) {
+        remoteVideoDiv.firstElementChild.srcObject =
+          OldUserUpdatedOrScreenStream;
+        remoteVideoDiv.firstElementChild.addEventListener(
+          "loadedmetadata",
+          () => {
+            remoteVideoDiv.firstElementChild.play();
+          }
+        );
       } else {
         const { name } = globalUsers.find((user) => user.peerID === call.peer);
         addStream(
           "remote",
-          newUserStream,
+          OldUserUpdatedOrScreenStream,
           call.peer + "present",
           name + " (presenting)",
           true
