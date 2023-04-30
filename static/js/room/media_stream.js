@@ -154,6 +154,7 @@ presentScreenBtn.addEventListener("click", async () => {
       presentScreenBtn.title = "Stop presenting screen";
       presentScreenBtn.classList.add("red");
     } catch (error) {
+      if(error.message !== "Permission denied")
       alert("Present screen does not supported by your browser.");
     }
   } else {
