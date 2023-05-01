@@ -106,7 +106,7 @@
     font-size: min(1rem,10cqi);
   }
   .heading:hover {
-    color: none !important;
+    color: #2bff00 !important;
   }
   .message-content > p {
     font-size: 4cqi;
