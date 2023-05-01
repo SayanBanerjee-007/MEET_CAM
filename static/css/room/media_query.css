@@ -65,6 +65,7 @@
   }
   /* Main Area -> Right Side */
   .right-side {
+    transform: translateX(-100000px);
     background: transparent !important;
     position: absolute;
     width: 90%;
@@ -76,6 +77,7 @@
     background: linear-gradient(to right, #1565c0, #b92b27) !important;
   }
   .local-video-grid {
+    transform: translateX(100000px);
     resize: none !important;
     position: absolute !important;
     margin-block: 0 !important;
