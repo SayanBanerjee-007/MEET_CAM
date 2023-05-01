@@ -50,6 +50,7 @@ menuListParticipantMessageBtn.addEventListener("click", () => {
   menuList.classList.remove("visible");
   document.querySelector(".right-side").classList.add("visible");
   document.querySelector(".participant-message").classList.add("visible");
+  localVideoGrid.classList.add('remove-translate');
   localVideoGrid.classList.add("invisible");
 });
 menuListPresentScreenBtn.addEventListener("click", () => {
@@ -63,5 +64,6 @@ menuListCopyLinkBtn.addEventListener("click", () => {
 rightSideCrossBtn.addEventListener("click", () => {
   document.querySelector(".right-side").classList.remove("visible");
   document.querySelector(".participant-message").classList.remove("visible");
+  localVideoGrid.classList.remove('remove-translate');
   localVideoGrid.classList.remove("invisible");
 });

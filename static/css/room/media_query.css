@@ -72,6 +72,7 @@
     justify-content: flex-end;
   }
   .right-side.visible {
+    transform: translateX(0) !important;
     background: #b92b27 !important;
     background: -webkit-linear-gradient(to right, #1565c0, #b92b27) !important;
     background: linear-gradient(to right, #1565c0, #b92b27) !important;
@@ -83,6 +84,9 @@
     margin-block: 0 !important;
     top: 0;
     right: 0;
+  }
+  .local-video-grid.remove-translate{
+    transform: translateX(100000px);
   }
   .participant-message {
     height: 85% !important;
