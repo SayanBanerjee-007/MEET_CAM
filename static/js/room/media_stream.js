@@ -155,7 +155,7 @@ presentScreenBtn.addEventListener("click", async () => {
       presentScreenBtn.classList.add("red");
     } catch (error) {
       if(error.message !== "Permission denied")
-      alert("Present screen does not supported by your browser.");
+      alert("Present screen is not supported by your browser.");
     }
   } else {
     myScreenStream.getVideoTracks()[0].stop();
