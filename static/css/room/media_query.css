@@ -102,6 +102,12 @@
     left: 0.5rem;
     width: 1.3rem;
   }
+  .heading{
+    font-size: min(1rem,10cqi);
+  }
+  .heading:hover {
+    color: currentColor !important;
+  }
   .message-content > p {
     font-size: 4cqi;
   }
