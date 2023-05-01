@@ -86,7 +86,7 @@
     right: 0;
   }
   .local-video-grid.remove-translate{
-    transform: translateX(100000px);
+    transform: translateX(0);
   }
   .participant-message {
     height: 85% !important;
