@@ -152,7 +152,7 @@ socket.on(
 socket.on(
   "new-user-joined-outgoing",
   (newParticipantName, socketID, peerID) => {
-    if (socketID !== socket.id) {
+    if (socketID !== socket.id && !document.getElementById(socketID)) {
       callNewUser(peerID, newParticipantName);
       addName(newParticipantName, socketID);
       joinAndLeaveMessage(newParticipantName, "join");
@@ -175,17 +175,19 @@ socket.on(
 socket.on(
   "receiving-old-participant-details",
   (oldParticipantName, oldParticipantSocketID, oldParticipantPeerID) => {
-    addName(oldParticipantName, oldParticipantSocketID);
-    // Extra security to add name in remote videos if the socket response get delayed
-    setTimeout(() => {
-      if (document.getElementById(oldParticipantPeerID));
-      addNameToVideo(oldParticipantPeerID, oldParticipantName);
-    }, 3000);
-    globalUsers.push({
-      name: oldParticipantName,
-      socketID: oldParticipantSocketID,
-      peerID: oldParticipantPeerID,
-    });
+    if (!document.getElementById(oldParticipantSocketID)) {
+      addName(oldParticipantName, oldParticipantSocketID);
+      // Extra security to add name in remote videos if the socket response get delayed
+      setTimeout(() => {
+        if (document.getElementById(oldParticipantPeerID));
+        addNameToVideo(oldParticipantPeerID, oldParticipantName);
+      }, 3000);
+      globalUsers.push({
+        name: oldParticipantName,
+        socketID: oldParticipantSocketID,
+        peerID: oldParticipantPeerID,
+      });
+    }
   }
 );
 socket.once("permission-denied", () => {
