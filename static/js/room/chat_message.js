@@ -66,6 +66,8 @@ function addChatMessage(chatMessage, timeString, type = "local") {
 // All Event Listeners ----------------------------------------------------------------
 window.onpageshow = () => {
   if (roomID === sessionStorage.getItem("roomID")) {
+    socket.disconnect();
+    peer.destroy();
     location.href = `https://${host}:${port}/home`;
   }
   sessionStorage.setItem("roomID", roomID);
