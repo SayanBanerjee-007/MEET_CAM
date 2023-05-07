@@ -165,6 +165,9 @@ body {
   flex-direction: column;
   scroll-snap-type: Y mandatory;
 }
+.remote-video-grid.hide-cursor{
+  cursor: none;
+}
 div.remote-video-grid::-webkit-scrollbar {
   display: block;
   width: 0.5vw;
@@ -212,6 +215,27 @@ div.remote-video-grid::-webkit-scrollbar-track-piece:start {
 .message-visible {
   visibility: visible;
   filter: opacity(80%);
+}
+
+/* Main Area -> Remote Video Grid -> Full Screen Button */
+#video-size-button{
+  cursor: pointer;
+  position: absolute;
+  height: 3dvh;
+  aspect-ratio: 1/1;
+  --btn-distance: 1.4dvh;
+  right: var(--btn-distance);
+  bottom: var(--btn-distance);
+  transition: transform 0.1s ease;
+}
+#video-size-button:hover{
+  transform: scale(1.5);
+}
+#video-size-button.hidden{
+  visibility: hidden;
+}
+.remote-video-grid:is(:fullscreen) #video-size-button{
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABFUlEQVR4nO2Y2wqEIBCG/8fLiOj9LxQ6GPUSs7jswrLR2dTiH5gbYcpvTo4CgDxEEXsDBAEjgofWSFVVMo6jDMMgZVkGt4cvkK7r5Ctt2+62t9aesocvkH8JbQ+CgBERphZYI2DXQmrtN89zMcbIXjkLsibuAF6YAKaL7pQ9IleDOOn7fjtI0zSSKoi1djuIUkq01kmmVlEU/keUxBSxN0AQMCKInj7CGkF8TwsjgvjeFUYE8T3KiHyccJ/7iDHmPdDOfG+6WNf17p+EAFl5kXwwiEr0PqK1lizLtoMc3UhoexAEjIgwtcAaAbsW7tp+zc885g6r0PbwBeImAPe86nThxL3MHr5AElPE3gBBwIggevrM6gue8wpMCo9algAAAABJRU5ErkJggg==");
 }
 
 /* Main Area -> Remote Video Grid -> Video Div */
