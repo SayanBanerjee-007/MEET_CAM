@@ -525,18 +525,19 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   aspect-ratio: 1/1;
   background-color: wheat;
   background-image: url("../../image/meet_cam_logo.jpg");
+  filter: saturate(3) contrast(1.4);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: var(--border-radius);
   cursor: pointer;
-  box-shadow: 0 0 .3rem white inset;
+  box-shadow: 0 0 0.4ch white inset;
 }
 /* Bottom Area -> Content ------------------ */
 .bottom .content {
-  background: #43cea2;
-  background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
-  background: linear-gradient(to right, #185a9d, #43cea2);
+  background: rgba(77, 171, 247, 0.5);
+  box-shadow: 0 0 0.2ch white inset, 0 0 0.5ch white inset,
+    0 0 0.7ch white inset;
   min-height: inherit;
   flex-basis: 60%;
   border-radius: var(--border-radius);
@@ -600,7 +601,7 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   justify-content: flex-end;
   align-items: center;
   background-image: url("../../image/room/copy_button.png");
-  box-shadow: 0 0 .4rem white inset;
+  box-shadow: 0 0 0.4rem white inset;
   background-color: transparent;
   background-position: right;
   background-repeat: no-repeat;
@@ -614,7 +615,7 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   height: 10dvh;
   aspect-ratio: 1.8/1;
   font-size: 3dvh;
-  font-size: min(3dvh,1.4cqi);
+  font-size: min(3dvh, 1.4cqi);
   line-height: 1.3;
   word-spacing: 10000vmax;
   padding-left: 10%;
