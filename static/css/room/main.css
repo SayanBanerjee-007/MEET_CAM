@@ -619,7 +619,6 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   color: white;
   background-image: linear-gradient(0deg, #e64980 5%, #ff8787 95%);
   top: 0;
-  left: 0;
   z-index: -1;
   border-radius: var(--border-radius);
 }
