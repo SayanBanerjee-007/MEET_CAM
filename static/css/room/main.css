@@ -615,6 +615,7 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   aspect-ratio: 1.8/1;
   font-size: 3dvh;
   font-size: min(3dvh,1.4cqi);
+  line-height: 1.3;
   word-spacing: 10000vmax;
   padding-left: 10%;
   color: white;
