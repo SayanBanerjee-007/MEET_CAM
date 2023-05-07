@@ -226,6 +226,7 @@ div.remote-video-grid::-webkit-scrollbar-track-piece:start {
   --btn-distance: 1.4dvh;
   right: var(--btn-distance);
   bottom: var(--btn-distance);
+  z-index: 3;
   transition: transform 0.1s ease;
 }
 #video-size-button:hover{
