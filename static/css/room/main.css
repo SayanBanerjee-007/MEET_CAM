@@ -550,14 +550,14 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   min-height: 7dvh;
   aspect-ratio: 1/1;
   border-radius: var(--border-radius);
-  background-color: yellowgreen;
+  background-color: hsl(110, 100%, 50%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80%;
   transition: background-color, box-shadow, transform 0.2s ease;
 }
 .bottom .content .content-children:hover {
-  background-color: coral;
+  background-color: hsl(55, 100%, 50%);
   transform: scale(1.3) translateY(-20%);
   box-shadow: 0 3px 10px rgb(20, 18, 18);
 }
@@ -613,6 +613,7 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   align-items: center;
   height: 10dvh;
   aspect-ratio: 1.8/1;
+  font-size: 3dvh;
   font-size: min(3dvh,1.4cqi);
   word-spacing: 10000vmax;
   padding-left: 10%;
