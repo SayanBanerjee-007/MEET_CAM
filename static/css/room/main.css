@@ -5,9 +5,7 @@
 }
 body {
   overflow: hidden;
-  background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: #130d3e;
   --border-radius: 0.5rem;
 }
 
@@ -531,13 +529,9 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: var(--border-radius);
-  transition: box-shadow 0.3s ease;
-}
-.bottom .logo:hover {
   cursor: pointer;
-  box-shadow: 0 0 4px rgb(2, 255, 2);
+  box-shadow: 0 0 .3rem white inset;
 }
-
 /* Bottom Area -> Content ------------------ */
 .bottom .content {
   background: #43cea2;
@@ -597,20 +591,38 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
 
 /* Bottom Area -> Copy URL Button ----------- */
 .bottom .copy-url-btn {
+  position: relative;
   height: 10dvh;
   aspect-ratio: 1/1;
   border-radius: var(--border-radius);
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: wheat;
+  box-shadow: 0 0 .4rem white inset;
   background-image: url("../../image/room/copy_button.png");
-  background-position: center;
+  background-color: transparent;
+  background-position: right;
   background-repeat: no-repeat;
-  background-size: cover;
-  transition: background-color 0.3s ease;
+  background-size: contain;
 }
-.bottom .copy-url-btn:hover {
-  cursor: pointer;
-  background-color: rgb(200, 114, 234);
+.bottom .copy-url-btn::before {
+  content: "Copy Link";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 10dvh;
+  aspect-ratio: 1.8/1;
+  font-size: 1.4cqi;
+  word-spacing: 10000vmax;
+  padding-left: 10%;
+  color: white;
+  background-image: linear-gradient(0deg, #e64980 5%, #ff8787 95%);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: var(--border-radius);
+}
+.bottom .copy-url-btn:is(:hover)::before {
+  font-weight: 900;
 }
