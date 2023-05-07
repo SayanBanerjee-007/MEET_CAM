@@ -593,14 +593,14 @@ div.message-content .chat::-webkit-scrollbar-thumb:hover {
 .bottom .copy-url-btn {
   position: relative;
   height: 10dvh;
-  aspect-ratio: 1/1;
+  aspect-ratio: 2/1;
   border-radius: var(--border-radius);
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  box-shadow: 0 0 .4rem white inset;
   background-image: url("../../image/room/copy_button.png");
+  box-shadow: 0 0 .4rem white inset;
   background-color: transparent;
   background-position: right;
   background-repeat: no-repeat;
